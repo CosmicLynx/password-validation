@@ -3,6 +3,7 @@ package org.password;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -27,6 +28,8 @@ public class Main {
             System.out.println("Password is good.");
 
         scn.close();
+
+        randomPassword();
 
     }
 
@@ -54,6 +57,16 @@ public class Main {
 
     public static boolean passwordIsNotCommon(String password) {
         return !Arrays.stream(CommonPasswords.mostCommonPasswords).anyMatch(password::equals);
+    }
+
+    public static void randomPassword() {
+        String generatedPassword = "";
+
+        while (passwordHasError(generatedPassword)) {
+            generatedPassword = RandomStringUtils.insecure().nextAscii(8);
+        }
+
+        System.out.println("Random password: " + generatedPassword);
     }
 
     public static boolean passwordHasError(String password) {

@@ -10,9 +10,11 @@ public class Main {
         System.out.println("Please enter a password");
         String input = scn.nextLine();
 
-        if (!isPasswordAtLeast8CharactersLong(input) || !passwordContainsNumbers(input)
-                || !passwordContainsUppercaseLetter(input)
-                || !passwordContainsLowercaseLetter(input)) {
+        boolean hasError = !isPasswordAtLeast8CharactersLong(input)
+                || !passwordContainsNumbers(input) || !passwordContainsUppercaseLetter(input)
+                || !passwordContainsLowercaseLetter(input);
+
+        if (hasError) {
             if (!isPasswordAtLeast8CharactersLong(input))
                 System.out.println("Password must be at least 8 characters long.");
             if (!passwordContainsNumbers(input))
@@ -23,6 +25,8 @@ public class Main {
                 System.out.println("Password must contain at least one lowercase letter.");
         } else if (!passwordIsNotCommon(input))
             System.out.println("Password is too common. Create a stronger password.");
+        else
+            System.out.println("Password is good.");
 
         scn.close();
 

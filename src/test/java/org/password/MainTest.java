@@ -76,4 +76,15 @@ public class MainTest {
         assertFalse(Main.passwordIsNotCommon("Password1"));
     }
 
+    // Password has no errors
+    @Test
+    void test_passwordHasErrors_trueIfError() {
+        assertTrue(Main.passwordHasError("password"));
+    }
+
+    @Test
+    void test_passwordHasErrors_falseIfNoError() {
+        assertFalse(Main.passwordHasError("Pass38]US"));
+    }
+
 }

@@ -54,6 +54,17 @@ public class MainTest {
         assertFalse(Main.passwordContainsLowercaseLetter("PASSWORD"));
     }
 
+    // Password contains special characters
+    @Test
+    void test_passwordContainsSpecialCharacters_trueIfContainsSpecialCharacter() {
+        assertTrue(Main.passwordContainsSpecialCharacters("Password{"));
+    }
+
+    @Test
+    void test_passwordContainsSpecialCharacters_falseIfContainsNoSpecialCharacter() {
+        assertFalse(Main.passwordContainsSpecialCharacters("Password"));
+    }
+
     // Password is not common
     @Test
     void test_passwordIsNotCommon_trueIfNotCommon() {

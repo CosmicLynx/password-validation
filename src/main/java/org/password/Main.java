@@ -12,7 +12,8 @@ public class Main {
 
         boolean hasError = !isPasswordAtLeast8CharactersLong(input)
                 || !passwordContainsNumbers(input) || !passwordContainsUppercaseLetter(input)
-                || !passwordContainsLowercaseLetter(input);
+                || !passwordContainsLowercaseLetter(input)
+                || !passwordContainsSpecialCharacter(input);
 
         if (hasError) {
             if (!isPasswordAtLeast8CharactersLong(input))
@@ -23,6 +24,8 @@ public class Main {
                 System.out.println("Password must contain at least one uppercase letter.");
             if (!passwordContainsLowercaseLetter(input))
                 System.out.println("Password must contain at least one lowercase letter.");
+            if (!passwordContainsSpecialCharacter(input))
+                System.out.println("Password must contain at least one special character.");
         } else if (!passwordIsNotCommon(input))
             System.out.println("Password is too common. Create a stronger password.");
         else
@@ -48,6 +51,10 @@ public class Main {
 
     public static boolean passwordContainsLowercaseLetter(String password) {
         return password.matches(".*[a-z].*");
+    }
+
+    public static boolean passwordContainsSpecialCharacter(String password) {
+        return password.matches(".*[\\p{P}\\p{S}].*");
     }
 
     public static boolean passwordIsNotCommon(String password) {

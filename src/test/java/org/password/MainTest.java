@@ -57,12 +57,12 @@ public class MainTest {
     // Password contains special characters
     @Test
     void test_passwordContainsSpecialCharacters_trueIfContainsSpecialCharacter() {
-        assertTrue(Main.passwordContainsSpecialCharacters("Password{"));
+        assertTrue(Main.passwordContainsSpecialCharacter("Password{"));
     }
 
     @Test
     void test_passwordContainsSpecialCharacters_falseIfContainsNoSpecialCharacter() {
-        assertFalse(Main.passwordContainsSpecialCharacters("Password"));
+        assertFalse(Main.passwordContainsSpecialCharacter("Password"));
     }
 
     // Password is not common

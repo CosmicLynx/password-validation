@@ -54,4 +54,15 @@ public class MainTest {
         assertFalse(Main.passwordContainsLowercaseLetter("PASSWORD"));
     }
 
+    // Password is not common
+    @Test
+    void test_passwordIsNotCommon_trueIfNotCommon() {
+        assertTrue(Main.passwordIsNotCommon("Jgd492hSDvf"));
+    }
+
+    @Test
+    void test_passwordIsNotCommon_falseIfCommon() {
+        assertFalse(Main.passwordIsNotCommon("Password1"));
+    }
+
 }

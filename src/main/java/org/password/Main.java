@@ -12,6 +12,10 @@ public class Main {
             System.out.println("Password must be at least 8 characters long.");
         if (!passwordContainsNumbers(input))
             System.out.println("Password must contain at least one number.");
+        if (!passwordContainsUppercaseLetter(input))
+            System.out.println("Password must contain at least one uppercase letter.");
+        if (!passwordContainsLowercaseLetter(input))
+            System.out.println("Password must contain at least one lowercase letter.");
 
         scn.close();
 
@@ -25,5 +29,13 @@ public class Main {
 
     public static boolean passwordContainsNumbers(String password) {
         return password.matches(".*\\d.*");
+    }
+
+    public static boolean passwordContainsUppercaseLetter(String password) {
+        return password.matches(".*[A-Z].*");
+    }
+
+    public static boolean passwordContainsLowercaseLetter(String password) {
+        return password.matches(".*[a-z].*");
     }
 }

@@ -10,8 +10,8 @@ public class Main {
 
         if (!isPasswordAtLeast8CharactersLong(input))
             System.out.println("Password must be at least 8 characters long.");
-        else
-            System.out.println("Password ok");
+        if (!passwordContainsNumbers(input))
+            System.out.println("Password must contain at least one number.");
 
         scn.close();
 
@@ -21,5 +21,9 @@ public class Main {
         int passwordLength = password.length();
 
         return passwordLength >= 8;
+    }
+
+    public static boolean passwordContainsNumbers(String password) {
+        return password.matches(".*\\d.*");
     }
 }

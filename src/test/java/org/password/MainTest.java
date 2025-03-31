@@ -32,4 +32,26 @@ public class MainTest {
     void test_passwordContainsNumbers_falseIfContainsNoNumbers() {
         assertFalse(Main.passwordContainsNumbers("password"));
     }
+
+    // Password contains at least one uppercase and one lowercase letter
+    @Test
+    void test_passwordContainsUppercaseLetter_trueIfContainsUppercaseLetter() {
+        assertTrue(Main.passwordContainsUppercaseLetter("passWord"));
+    }
+
+    @Test
+    void test_passwordContainsUppercaseLetter_falseIfContainsNoUppercaseLetter() {
+        assertFalse(Main.passwordContainsUppercaseLetter("password"));
+    }
+
+    @Test
+    void test_passwordContainsLowercaseLetter_trueIfContainsLowercaseLetter() {
+        assertTrue(Main.passwordContainsLowercaseLetter("PASSwORD"));
+    }
+
+    @Test
+    void test_passwordContainsLowercaseLetter_falseIfContainsNoLowercaseLetter() {
+        assertFalse(Main.passwordContainsLowercaseLetter("PASSWORD"));
+    }
+
 }

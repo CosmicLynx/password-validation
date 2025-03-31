@@ -15,4 +15,8 @@ public class MainTest {
         assertFalse(Main.isPasswordAtLeast8CharactersLong("passw"));
     }
 
+    @Test
+    void test_isPasswordAtLeast8CharactersLong_trueIf8Chars() {
+        assertTrue(Main.isPasswordAtLeast8CharactersLong("password"));
+    }
 }
